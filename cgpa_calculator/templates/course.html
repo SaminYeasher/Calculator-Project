@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enter GPA</title>
+</head>
+<body>
+  <h2>Enter GPA for {{ program }} Courses</h2>
+  <form method="POST" action="/calculate">
+    <input type="hidden" name="program" value="{{ program }}">
+    {% for course in courses %}
+    <div>
+      <strong>{{ course.title }} ({{ course.code }})</strong><br>
+      Credit: <input type="number" name="credit" value="{{ course.credit }}" step="0.1" required>
+      GPA: <input type="number" name="gp" step="0.01" min="0" max="4" required>
+      <input type="hidden" name="course_code" value="{{ course.code }}">
+    </div>
+    <br>
+    {% endfor %}
+    <input type="submit" value="Calculate CGPA">
+  </form>
+</body>
+</html>

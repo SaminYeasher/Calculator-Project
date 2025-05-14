@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Program</title>
+</head>
+<body>
+  <h2>Select Your Program</h2>
+  <form method="POST" action="/courses">
+    <label for="program">Choose Program:</label>
+    <select name="program" required>
+      {% for program in programs %}
+      <option value="{{ program }}">{{ program }}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+    <input type="submit" value="Continue">
+  </form>
+</body>
+</html>
